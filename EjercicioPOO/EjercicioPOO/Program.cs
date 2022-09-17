@@ -17,32 +17,43 @@ namespace EjercicioPOO
         static private int _cantOmnibus = 5;
         static private int _cantTaxis = 5;
 
+
         static void Main(string[] args)
         {
             Console.WriteLine("**************************************************************");
             Console.WriteLine("***************TRANSPORTE PUBLICOS DE PASAJEROS***************");
             Console.WriteLine("**************************************************************");
+            Console.WriteLine("");
 
             AgregarOmnibus();
-            
-            Console.WriteLine("");
-            Console.WriteLine("");
-
-            AgregarTaxis();          
 
             Console.WriteLine("");
             Console.WriteLine("");
+
+            AgregarTaxis();
+
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("**************************************************************");
+            Console.WriteLine("************************LISTA DE TAXIS************************");
+            Console.WriteLine("**************************************************************");
 
             for (int i = 0; i < _taxis.Count; i++)
-            {
-                Console.WriteLine("Taxi " + i + 1 + ": " + _taxis[i].pasajeros);
-               
+            {                
+                Console.WriteLine("Taxi {0} : {1}", (i + 1), _taxis[i].pasajeros);
+                Console.WriteLine("");
             }
+
+            Console.WriteLine("**************************************************************");
+            Console.WriteLine("***********************LISTA DE OMNIBUS***********************");
+            Console.WriteLine("**************************************************************");
 
             for (int i = 0; i < _omnibus.Count; i++)
             {
                 Console.WriteLine("Omnibus {0} : {1}", (i + 1), _omnibus[i].pasajeros);
+                Console.WriteLine("");
             }
+           
 
             Console.WriteLine("el total de pasajeros es de : {0}", _pasajerosTotal);
 
@@ -52,16 +63,17 @@ namespace EjercicioPOO
         private static void AgregarOmnibus()
         {
             Console.WriteLine("***********************CARGA DE OMNIBUS***********************");
+
            
             for (int i = 0; i < _cantOmnibus; i++)
             {
                 int pasajeros = 0;
                 Console.WriteLine("");
-                
 
                 Omnibus omnibus = new Omnibus(pasajeros);
+
                 omnibus.Detenerse();
-                Console.WriteLine("ingrese los pasajeros para el proximo omnibus");
+                Console.WriteLine("Ingrese los pasajeros para el proximo omnibus");
                 pasajeros = int.Parse(Console.ReadLine());
                 omnibus.pasajeros = pasajeros;
                 _omnibus.Add(omnibus);
@@ -69,25 +81,24 @@ namespace EjercicioPOO
 
                 omnibus.Avanzar();
             }
-            Console.WriteLine("No quedan mas omnibus");
-            Console.WriteLine("*********************************************");
 
+            Console.WriteLine("");
+            Console.WriteLine("No quedan mas omnibus");
+            Console.WriteLine("**************************************************************");
         }
         private static void AgregarTaxis()
         {
-            
+            Console.WriteLine("************************CARGA DE TAXIS*************************");
 
-            Console.WriteLine("***************CARGA DE TAXIS***************");
             for (int i = 0; i < _cantTaxis; i++)
-            {
+            {               
                 int pasajeros = 0;
                 Console.WriteLine("");
-               
 
                 Taxi taxi = new Taxi(pasajeros);
 
                 taxi.Detenerse();
-                Console.WriteLine("ingrese los pasajeros para el proximo taxi");
+                Console.WriteLine("Ingrese los pasajeros para el proximo taxi");
                 pasajeros = int.Parse(Console.ReadLine());
                 taxi.pasajeros = pasajeros;
                 _taxis.Add(taxi);
@@ -95,8 +106,9 @@ namespace EjercicioPOO
 
                 taxi.Avanzar();
             }
+            Console.WriteLine("");
             Console.WriteLine("No quedan mas Taxis");
-            Console.WriteLine("*********************************************");
+            Console.WriteLine("**************************************************************");
         }
     }
 }

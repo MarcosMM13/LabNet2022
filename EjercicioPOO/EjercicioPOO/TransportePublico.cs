@@ -22,5 +22,6 @@ namespace EjercicioPOO
         }
         public abstract void Avanzar();
         public abstract void Detenerse();
+       
     }
 }

@@ -8,8 +8,9 @@ namespace EjercicioPOO
 {
     public class Omnibus : TransportePublico
     {
-        public Omnibus(int pasajeros) : base(pasajeros) { }         
-       
+        public Omnibus(int pasajeros) : base(pasajeros) { }
+
+
         public override void Avanzar()
         {
             Console.WriteLine("Los pasajeros han subido al Omnibus, continua su marcha.");
@@ -19,5 +20,7 @@ namespace EjercicioPOO
         {
             Console.WriteLine("El Omnibus se detiene");
         }
+
+      
     }
 }
