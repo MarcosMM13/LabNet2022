@@ -16,8 +16,5 @@ namespace EjExtensionsAndExceptions.Extensions
         {
             return num1 / num2;
         }
-        
-
-
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EjExtensionsAndExceptions.Exceptions;
 using EjExtensionsAndExceptions.Extensions;
-using EjExtensionsAndExceptions.Validates;
+
 
 namespace EjExtensionsAndExceptions
 {
@@ -67,7 +67,7 @@ namespace EjExtensionsAndExceptions
             }
             catch
             {
-                ExceptionsMethods.DivideNumbersEx(_num1, _num2, _result);
+                ExceptionsMethods.DivideNumbersEx(_num1, _num2);
             }
             finally
             {

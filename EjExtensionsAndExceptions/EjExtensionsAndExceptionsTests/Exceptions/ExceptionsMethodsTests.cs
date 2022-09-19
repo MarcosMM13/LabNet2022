@@ -11,16 +11,19 @@ namespace EjExtensionsAndExceptions.Exceptions.Tests
     [TestClass()]
     public class ExceptionsMethodsTests
     {
-        [TestMethod()]
-        [ExpectedException(typeof(DivideByZeroException))]
-        public void DivideByNumbersExTest()
+        [TestMethod()]        
+        public void DivideByZeroExTest()
         {
             int n1 = 5;
-            int n2 = 0;
-            double r = 0;
+           ExceptionsMethods.DivideByZeroEx(n1);
+        }
 
-            ExceptionsMethods.DivideNumbersEx(n1, n2, r);
-
+        [TestMethod()]
+        public void DivideNumbersExTest()
+        {
+            int n1 = 25;
+            int n2 = 5;
+            ExceptionsMethods.DivideNumbersEx(n1,n2);
         }
     }
 }

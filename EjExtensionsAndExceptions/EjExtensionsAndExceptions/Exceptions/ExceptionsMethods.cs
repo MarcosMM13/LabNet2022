@@ -43,12 +43,12 @@ namespace EjExtensionsAndExceptions.Exceptions
                 Console.WriteLine("Aqui finaliza la division por cero!");
             }
         }
-        public static void DivideNumbersEx(int num1, int num2, double result)
+        public static void DivideNumbersEx(int num1, int num2)
         {
             try
             {
                 {
-                    result = num1 / num2;
+                  double  result = num1 / num2;
                 }
             }
             catch (DivideByZeroException dEx)

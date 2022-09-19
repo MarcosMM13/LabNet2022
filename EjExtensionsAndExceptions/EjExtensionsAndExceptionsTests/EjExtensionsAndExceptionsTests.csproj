@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Exceptions\ExceptionsMethodsTests.cs" />
+    <Compile Include="Extensions\ExtensionsMethodsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
