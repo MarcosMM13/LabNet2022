@@ -17,7 +17,7 @@ namespace WinForm.Vista
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ());
+            Application.Run(new frmMenu());
 
         }
     }
