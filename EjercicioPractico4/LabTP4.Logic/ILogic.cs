@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace LabTP4.Logic
 {
-   public interface ILogic<T>
+    public interface ILogic<T>
     {
         List<T> GetAll();
+
+        void Add(T newObj);
+        void Delete(int id);
+
+        void Update(T obj);
     }
 }

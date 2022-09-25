@@ -14,5 +14,21 @@ namespace LabTP4.Logic
         {
             return _context.Products.ToList();
         }
+
+        public void Add(Product newContext)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void Update(Product obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

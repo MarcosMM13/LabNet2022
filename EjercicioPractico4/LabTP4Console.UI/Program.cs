@@ -25,14 +25,38 @@ namespace LabTP4Console.UI
             Console.WriteLine("");
             Console.WriteLine("*******************************************");
 
-            //RegionLogic rl = new RegionLogic();
-            ILogic<Region> rl = new RegionLogic();
+            RegionLogic rl = new RegionLogic();
+            //ILogic<Region> rl = new RegionLogic();
             var products2 = rl.GetAll();
 
             foreach (var item in products2)
             {
                 Console.WriteLine($"{item.RegionID} - {item.RegionDescription}");
             }
+            Console.WriteLine();
+            //rl.Add(new Region
+            //{
+            //    RegionID = 10,
+            //    RegionDescription = "Montañas"
+
+            //});
+
+
+            //rl.Delete(10);
+            //Console.WriteLine("se borro con exito");
+
+            rl.Update(new Region
+            {
+                RegionDescription = "Nueva Descripcion",
+                RegionID = 10
+            });
+
+            foreach (var item in products2)
+            {
+                Console.WriteLine($"{item.RegionID} - {item.RegionDescription}");
+            }
+
+
 
             Console.ReadKey();
         }
