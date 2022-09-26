@@ -15,7 +15,7 @@ namespace LabTP4.Logic
             return _context.Products.ToList();
         }
 
-        public void Add(Product newContext)
+        public void Add(Product newObj)
         {
             throw new NotImplementedException();
         }

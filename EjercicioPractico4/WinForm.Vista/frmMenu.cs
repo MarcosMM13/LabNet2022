@@ -20,7 +20,7 @@ namespace WinForm.Vista
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmEmpleados frmEmpleados = new frmEmpleados();
-            frmEmpleados.Show();
+            frmEmpleados.ShowDialog();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)

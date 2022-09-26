@@ -12,51 +12,124 @@ namespace LabTP4Console.UI
     {
         static void Main(string[] args)
         {
+            //Console.WriteLine("Esto es Empleado");
+            ////EmployeeLogic el = new EmployeeLogic();
+            //ILogic<Employee> el = new EmployeeLogic();
+            //var employees = el.GetAll();
 
-            //ProducLogic pl = new ProducLogic();
-            ILogic<Product> pl = new ProducLogic();
-            var products = pl.GetAll();
+            //foreach (var item in employees)
+            //{
+            //    Console.WriteLine($"{item.FirstName} - {item.LastName} - {item.Address} - {item.City}");
+            //}
 
-            foreach (var item in products)
-            {
-                Console.WriteLine($"{item.ProductName} - {item.UnitPrice}");
-            }
 
             Console.WriteLine("");
             Console.WriteLine("*******************************************");
 
-            RegionLogic rl = new RegionLogic();
-            //ILogic<Region> rl = new RegionLogic();
-            var products2 = rl.GetAll();
+            Console.WriteLine("Esto es Region");
+            //RegionLogic rl = new RegionLogic();
+            Region r = new Region();
+            ILogic<Region> rl = new RegionLogic();
+         
+            int? idRegion = r.RegionID;
+            string descRegion = r.RegionDescription;
 
-            foreach (var item in products2)
+            //try
+            //{
+            //    Console.WriteLine("Ingrese el Id de la Region:");
+            //    idRegion = int.Parse(Console.ReadLine());
+            //    Console.WriteLine("Ingrese la descripcion:");
+            //    descRegion = Console.ReadLine();
+
+            //    rl.Add(new Region
+            //    {
+            //        RegionID = idRegion,
+            //        RegionDescription = descRegion
+            //    });
+            //    Console.WriteLine("Se guardo registro con exito!");
+
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    Console.WriteLine($"{ex.Message}");
+            //}
+
+            //Console.WriteLine("Aca se borra una Region");
+            //try
+            //{                
+            //    foreach (var item in rl.GetAll())
+            //    {
+            //        Console.WriteLine($"{item.RegionID} - {item.RegionDescription}");
+            //    }
+
+            //    Console.WriteLine("Ingrese el id de la region que quiere borrar");
+            //    idRegion = int.Parse(Console.ReadLine());
+            //    rl.Delete(idRegion);
+            //    Console.WriteLine("se borro con exito");
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    Console.WriteLine($"{ex.Message}");
+            //}            
+
+            Console.WriteLine("Esto es actualizar la region");
+
+            try
+            {
+                foreach (var item in rl.GetAll())
+                {
+                    Console.WriteLine($"{item.RegionID} - {item.RegionDescription}");
+                }
+
+                Console.WriteLine("Modifique el Id de la Region:");
+                idRegion = int.Parse(Console.ReadLine());
+                Console.WriteLine("Modifique la descripcion:");
+                descRegion = Console.ReadLine();
+
+                if (idRegion != null)
+                {
+                    rl.Update(new Region
+                    {
+                        RegionDescription = descRegion,
+                        RegionID = (int)idRegion
+                    });
+                }               
+                Console.WriteLine("Se actualizo con exito!");
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"{ex.Message}");
+            }
+
+
+            var region = rl.GetAll();
+            foreach (var item in region)
             {
                 Console.WriteLine($"{item.RegionID} - {item.RegionDescription}");
             }
             Console.WriteLine();
-            //rl.Add(new Region
+
+
+
+            Console.WriteLine("");
+            Console.WriteLine("*******************************************");
+
+            //Console.WriteLine("Esto es Territorio");
+            ////RegionLogic rl = new RegionLogic();
+            //ILogic<Territory> tl = new TerritoriesLogic();
+            //var territorio = tl.GetAll();
+
+            //foreach (var item in territorio)
             //{
-            //    RegionID = 10,
-            //    RegionDescription = "Montañas"
+            //    Console.WriteLine($"{item.TerritoryID} - {item.RegionID} - {item.TerritoryDescription}");
+            //}
+            //Console.WriteLine();
 
-            //});
-
-
-            //rl.Delete(10);
-            //Console.WriteLine("se borro con exito");
-
-            rl.Update(new Region
-            {
-                RegionDescription = "Nueva Descripcion",
-                RegionID = 10
-            });
-
-            foreach (var item in products2)
-            {
-                Console.WriteLine($"{item.RegionID} - {item.RegionDescription}");
-            }
-
-
+            //Console.WriteLine("");
+            //Console.WriteLine("*******************************************");  
 
             Console.ReadKey();
         }
