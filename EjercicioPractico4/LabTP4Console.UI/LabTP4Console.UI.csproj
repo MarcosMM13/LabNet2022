@@ -50,8 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UILogic\BaseUI.cs" />
+    <Compile Include="UILogic\CategoryUI.cs" />
+    <Compile Include="UILogic\EmployeeUI.cs" />
+    <Compile Include="UILogic\IPresentacion.cs" />
+    <Compile Include="UILogic\OrderUI.cs" />
+    <Compile Include="UILogic\ProductUI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UILogic\RegionUI.cs" />
+    <Compile Include="UILogic\SuppliersUI.cs" />
+    <Compile Include="UILogic\TerritoriesUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

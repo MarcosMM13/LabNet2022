@@ -7,32 +7,22 @@ using LabTP4.Entities;
 
 namespace LabTP4.Logic
 {
-    public class EmployeeLogic : BaseLogic, ILogic<Employee>
+    public class EmployeeLogic : BaseLogic<Employee>
     {
-        public List<Employee> GetAll()
+        public override List<Employee> GetAll()
         {
             return _context.Employees.ToList();
                      
         }
-        public int? GetId(int? id)
-        {
-            try
-            {
-                return id;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-        public void Add(Employee newEmployee)
+      
+        public override void Add(Employee newEmployee)
         {
             
             _context.Employees.Add(newEmployee);
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public override void Delete(int id)
         {
             var employeEliminar = _context.Employees.Find(id);
             _context.Employees.Remove(employeEliminar);
@@ -41,7 +31,7 @@ namespace LabTP4.Logic
 
         }
 
-        public void Update(Employee employee)
+        public override void Update(Employee employee)
         {
             var employeUpdate = _context.Employees.Find(employee.EmployeeID);
 
@@ -70,8 +60,13 @@ namespace LabTP4.Logic
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
+        }
+
+        public override Employee GetById(int id)
+        {
+            return _context.Employees.Find(id);
         }
     }
 }

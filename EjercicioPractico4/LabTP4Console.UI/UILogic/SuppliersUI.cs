@@ -1,32 +1,30 @@
 ﻿using LabTP4.Entities;
-using LabTP4.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LabTP4.Logic
+namespace LabTP4Console.UI
 {
-    public class ProducLogic : BaseLogic, ILogic<Product>
+    class SuppliersUI : BaseUI<Supplier>
     {
-        public List<Product> GetAll()
-        {
-            return _context.Products.ToList();
-        }
-
-        public void Add(Product newObj)
+        public override void Alta()
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(int id)
+        public override void Baja()
         {
             throw new NotImplementedException();
         }
 
+        public override void Listar()
+        {
+            throw new NotImplementedException();
+        }
 
-        public void Update(Product obj)
+        public override void Modificacion()
         {
             throw new NotImplementedException();
         }

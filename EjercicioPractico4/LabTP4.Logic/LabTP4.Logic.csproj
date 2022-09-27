@@ -48,13 +48,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseLogic.cs" />
-    <Compile Include="EmployeeLogic.cs" />
-    <Compile Include="ILogic.cs" />
-    <Compile Include="ProducLogic.cs" />
+    <Compile Include="Logic\BaseLogic.cs" />
+    <Compile Include="Logic\CategoryLogic.cs" />
+    <Compile Include="Logic\EmployeeLogic.cs" />
+    <Compile Include="Logic\ILogic.cs" />
+    <Compile Include="Logic\ProducLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegionLogic.cs" />
-    <Compile Include="TerritoriesLogic.cs" />
+    <Compile Include="Logic\RegionLogic.cs" />
+    <Compile Include="Logic\SuppliersLogic.cs" />
+    <Compile Include="Logic\TerritoriesLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

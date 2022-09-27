@@ -7,16 +7,16 @@ using LabTP4.Entities;
 
 namespace LabTP4.Logic
 {
-    public class TerritoriesLogic : BaseLogic, ILogic<Territory>
-    {
-        public void Add(Territory newTerritory)
+    public class TerritoriesLogic : BaseLogic<Territory>
+    { 
+        public override void Add(Territory newTerritory)
         {
             _context.Territories.Add(newTerritory);
 
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public override void Delete(int id)
         {
             var territorioEliminar = _context.Territories.Find(id);
 
@@ -25,12 +25,26 @@ namespace LabTP4.Logic
             _context.SaveChanges();
         }
 
-        public List<Territory> GetAll()
+        public override List<Territory> GetAll()
         {
-            return _context.Territories.ToList();
+            try
+            {
+                return _context.Territories.ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
-        public void Update(Territory territory)
+        public override Territory GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update(Territory territory)
         {
             var territorioUpdate = _context.Territories.Find(territory.TerritoryID);
 

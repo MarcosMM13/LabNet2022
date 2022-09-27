@@ -6,14 +6,15 @@ namespace LabTP4.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Order
+    public partial class Orders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
+        public Orders()
         {
             Order_Details = new HashSet<Order_Detail>();
         }
 
+        [Key]
         public int OrderID { get; set; }
 
         [StringLength(5)]

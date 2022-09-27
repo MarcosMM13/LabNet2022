@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 
 namespace LabTP4.Logic
 {
-    public class RegionLogic : BaseLogic, ILogic<Region>
+    public class RegionLogic : BaseLogic<Region>
     {
-        public List<Region> GetAll()
+        public override List<Region> GetAll()
         {
             return _context.Regions.ToList();
         }
 
-        public void Add(Region newObj)
+        public override void Add(Region newObj)
         {
             _context.Regions.Add(newObj);
 
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public override void Delete(int id)
         {
             var regionEliminar = _context.Regions.Find(id);
 
@@ -31,7 +31,7 @@ namespace LabTP4.Logic
             _context.SaveChanges();
         }
 
-        public void Update(Region region)
+        public override void Update(Region region)
         {//revisar porque no captura la excepcion!!
             try
             {
@@ -53,5 +53,9 @@ namespace LabTP4.Logic
             }
         }
 
+        public override Region GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

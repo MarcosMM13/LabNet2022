@@ -18,7 +18,7 @@ namespace LabTP4.Data
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Order_Detail> Order_Details { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Region> Regions { get; set; }
         public virtual DbSet<Shipper> Shippers { get; set; }
@@ -54,15 +54,15 @@ namespace LabTP4.Data
                 .Property(e => e.UnitPrice)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<Order>()
+            modelBuilder.Entity<Orders>()
                 .Property(e => e.CustomerID)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Order>()
+            modelBuilder.Entity<Orders>()
                 .Property(e => e.Freight)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<Order>()
+            modelBuilder.Entity<Orders>()
                 .HasMany(e => e.Order_Details)
                 .WithRequired(e => e.Order)
                 .WillCascadeOnDelete(false);

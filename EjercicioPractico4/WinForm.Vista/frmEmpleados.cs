@@ -69,7 +69,7 @@ namespace WinForm.Vista
         {
             EmployeeLogic el = new EmployeeLogic();
             int? id = int.Parse(dgvEmpleado.Rows[dgvEmpleado.CurrentRow.Index].Cells[0].Value.ToString()); ;
-            el.GetId(id);
+            //el.GetId(id);
 
             if (id != null)
             {

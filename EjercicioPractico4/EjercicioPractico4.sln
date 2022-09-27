@@ -13,10 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabTP4.Entities", "LabTP4.E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabTP4Console.UI", "LabTP4Console.UI\LabTP4Console.UI.csproj", "{7974E488-B6CE-4A4D-851D-F1547EE72865}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabTP4.Exceptions", "LabTP4.Excepcions\LabTP4.Exceptions.csproj", "{20888483-8109-4B72-B3D2-AB25A7A3F293}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabTP4.Validates", "LabTP4.Validates\LabTP4.Validates.csproj", "{C7C57D95-854A-4328-B0B0-7BE8586CAA1A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,14 +39,6 @@ Global
 		{7974E488-B6CE-4A4D-851D-F1547EE72865}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7974E488-B6CE-4A4D-851D-F1547EE72865}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7974E488-B6CE-4A4D-851D-F1547EE72865}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20888483-8109-4B72-B3D2-AB25A7A3F293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20888483-8109-4B72-B3D2-AB25A7A3F293}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20888483-8109-4B72-B3D2-AB25A7A3F293}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20888483-8109-4B72-B3D2-AB25A7A3F293}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C7C57D95-854A-4328-B0B0-7BE8586CAA1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7C57D95-854A-4328-B0B0-7BE8586CAA1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7C57D95-854A-4328-B0B0-7BE8586CAA1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7C57D95-854A-4328-B0B0-7BE8586CAA1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

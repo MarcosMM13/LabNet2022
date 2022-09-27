@@ -12,7 +12,7 @@ namespace LabTP4.Entities
         public Employee()
         {
             Employees1 = new HashSet<Employee>();
-            Orders = new HashSet<Order>();
+            Orders = new HashSet<Orders>();
             Territories = new HashSet<Territory>();
         }
 
@@ -74,7 +74,7 @@ namespace LabTP4.Entities
         public virtual Employee Employee1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Territory> Territories { get; set; }

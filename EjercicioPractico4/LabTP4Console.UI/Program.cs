@@ -13,21 +13,41 @@ namespace LabTP4Console.UI
         static void Main(string[] args)
         {
             Menu();
+
             Console.ReadKey();
         }
 
         #region Metodos
+        #region Orders
+        private static void GetOrdenes()
+        {
+            //Console.WriteLine("******Listado de Ordenes******");
+
+            //ILogic<Orders> ol = new OrdersLogic();
+            //var orders = ol.GetAll();
+
+            //foreach (var item in orders)
+            //{
+            //    Console.WriteLine($"{item.OrderID} - {item.OrderDate} - {item.ShipName} - {item.ShipAddress}");
+            //}
+        }
+        private static void AltaOrdenes()
+        {
+
+        }
+        private static void BajaOrdenes()
+        {
+
+        }
+        private static void ModificacionOrdenes()
+        {
+
+        }
+        #endregion Orders
         #region Empleados
         private static void GetEmpleado()
         {
-            Console.WriteLine("******Listado de Empleados******");
-            ILogic<Employee> el = new EmployeeLogic();
-            var employees = el.GetAll();
-
-            foreach (var item in employees)
-            {
-                Console.WriteLine($"{item.FirstName} - {item.LastName} - {item.Address} - {item.City}");
-            }
+           
         }
         private static void AltaEmpleado()
         {
@@ -41,6 +61,7 @@ namespace LabTP4Console.UI
         {
 
         }
+
         #endregion Empleados
         #region Region
         private static void GetRegion()
@@ -173,16 +194,22 @@ namespace LabTP4Console.UI
         private static void GetTerritorios()
         {
             Console.WriteLine("******Listado de Territorio******");
-
-            ILogic<Territory> tl = new TerritoriesLogic();
-            var territorio = tl.GetAll();
-
-            foreach (var item in territorio)
+            try
             {
-                Console.WriteLine($"{item.TerritoryID} - {item.RegionID} - {item.TerritoryDescription}");
-            }
-            Console.WriteLine("");
+                ILogic<Territory> tl = new TerritoriesLogic();
+                var territorio = tl.GetAll();
 
+                foreach (var item in territorio)
+                {
+                    Console.WriteLine($"{item.TerritoryID} - {item.RegionID} - {item.TerritoryDescription}");
+                }
+                Console.WriteLine("");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
         private static void ModificacionTerritorio()
         {
@@ -202,7 +229,7 @@ namespace LabTP4Console.UI
                 Console.WriteLine("Modifique el Id del Territorio:");
                 idTerritorio = Console.ReadLine();
                 Console.WriteLine("Modifique la descripcion:");
-                descTerritorio = Console.ReadLine();              
+                descTerritorio = Console.ReadLine();
 
                 if (idTerritorio != null)
                 {
@@ -297,7 +324,7 @@ namespace LabTP4Console.UI
             do
             {
                 Console.Clear();
-                Console.WriteLine("*******Empleados - Regiones - Territorios*******");
+                Console.WriteLine("*******NORTHWIND*******");
                 ShowMenuGeneral();
                 option = Console.ReadLine();
 
@@ -313,7 +340,54 @@ namespace LabTP4Console.UI
                         MenuTerritorio();
                         break;
                     case "4":
+                        break;
+                    case "5":
                         About();
+                        break;
+                    case "6":
+                        break;
+
+                    default:
+                        Console.WriteLine("Opcion No Valida");
+                        break;
+                }
+            } while (option != "6");
+
+            Console.ReadKey();
+        }
+
+
+
+
+        private static void MenuEmpleados()
+        {
+            string option = "";
+            EmployeeUI employeeUI = new EmployeeUI();
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("*******Menu de Empleados*******");
+                ShowMenuEmpleados();
+                option = Console.ReadLine();
+
+                switch (option)
+                {
+                    case "1":
+                        AltaEmpleado();
+                        Console.ReadKey();
+                        break;
+                    case "2":
+                        BajaEmpleado();
+                        Console.ReadKey();
+                        break;
+                    case "3":
+                        ModificacionEmpleado();
+                        Console.ReadKey();
+                        break;
+                    case "4":
+                        employeeUI.Listar();
+                        Console.ReadKey();
                         break;
                     case "5":
                         break;
@@ -323,39 +397,6 @@ namespace LabTP4Console.UI
                         break;
                 }
             } while (option != "5");
-
-            Console.ReadKey();
-        }
-        private static void MenuEmpleados()
-        {
-            string option = "";
-
-            do
-            {
-                Console.Clear();
-                Console.WriteLine("*******Empleados - Regiones - Territorios*******");
-                ShowMenuEmpleados();
-                option = Console.ReadLine();
-
-                switch (option)
-                {
-                    case "1":
-                        AltaEmpleado();
-                        break;
-                    case "2":
-                        BajaEmpleado();
-                        break;
-                    case "3":
-                        ModificacionEmpleado();
-                        break;
-                    case "4":
-                        break;
-
-                    default:
-                        Console.WriteLine("Opcion No Valida");
-                        break;
-                }
-            } while (option != "4");
 
             Console.ReadKey();
         }
@@ -382,20 +423,23 @@ namespace LabTP4Console.UI
                         ModificacionRegion();
                         break;
                     case "4":
+                        GetRegion();
+                        break;
+                    case "5":
                         break;
 
                     default:
                         Console.WriteLine("Opcion No Valida");
                         break;
                 }
-            } while (option != "4");
+            } while (option != "5");
 
             Console.ReadKey();
         }
         private static void MenuTerritorio()
         {
             string option = "";
-
+            TerritoriesUI territoriesUI = new TerritoriesUI();
             do
             {
                 Console.Clear();
@@ -406,23 +450,29 @@ namespace LabTP4Console.UI
                 switch (option)
                 {
                     case "1":
-                        AltaTerritorios();
+                        territoriesUI.Alta();
+                        Console.ReadKey();
                         break;
                     case "2":
-                        BajaTerritorio();
+                        territoriesUI.Baja();
+                        Console.ReadKey();
                         break;
                     case "3":
-                        ModificacionTerritorio();
+                        territoriesUI.Modificacion();
+                        Console.ReadKey();
                         break;
                     case "4":
+                        territoriesUI.Listar();
+                        Console.ReadKey();
                         break;
-
+                    case "5":
+                        break;
 
                     default:
                         Console.WriteLine("Opcion No Valida");
                         break;
                 }
-            } while (option != "4");
+            } while (option != "5");
 
             Console.ReadKey();
         }
@@ -435,19 +485,22 @@ namespace LabTP4Console.UI
             sb.AppendLine("1. Empleados");
             sb.AppendLine("2. Region");
             sb.AppendLine("3. Territorios");
-            sb.AppendLine("4. Acerca De");
-            sb.AppendLine("5. Salir");
+            sb.AppendLine("4. Ordenes");
+            sb.AppendLine("5. Acerca De");
+            sb.AppendLine("6. Salir");
             sb.Append("Seleccione una Opcion");
 
             Console.WriteLine(sb.ToString());
         }
+
         private static void ShowMenuEmpleados()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("1. Alta de Empleados");
             sb.AppendLine("2. Baja de Empleados");
             sb.AppendLine("3. Modificacion de Empleados");
-            sb.AppendLine("4. Salir");
+            sb.AppendLine("4. Ver Listado de Empleados");
+            sb.AppendLine("5. Salir");
             sb.Append("Seleccione una Opcion");
 
             Console.WriteLine(sb.ToString());
@@ -458,7 +511,8 @@ namespace LabTP4Console.UI
             sb.AppendLine("1. Alta de Region");
             sb.AppendLine("2. Baja de Region");
             sb.AppendLine("3. Modificacion de Region");
-            sb.AppendLine("4. Salir");
+            sb.AppendLine("4. Ver Listado de Regiones");
+            sb.AppendLine("5. Salir");
             sb.Append("Seleccione una Opcion");
 
             Console.WriteLine(sb.ToString());
@@ -469,7 +523,8 @@ namespace LabTP4Console.UI
             sb.AppendLine("1. Alta de Territorio");
             sb.AppendLine("2. Baja de Territorio");
             sb.AppendLine("3. Modificacion de Territorios");
-            sb.AppendLine("4. Salir");
+            sb.AppendLine("4. Ver Listado de Territorios");
+            sb.AppendLine("5. Salir");
             sb.Append("Seleccione una Opcion");
 
             Console.WriteLine(sb.ToString());
