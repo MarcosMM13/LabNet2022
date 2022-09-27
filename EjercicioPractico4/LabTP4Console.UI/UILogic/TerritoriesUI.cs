@@ -99,7 +99,6 @@ namespace LabTP4Console.UI
                 throw ex;
             }
         }
-
         public override void Modificacion()
         {
             Territory t = new Territory();
@@ -139,6 +138,58 @@ namespace LabTP4Console.UI
             Console.WriteLine();
             Listar();
             Console.WriteLine("");
+        }
+        public override void Menu()
+        {
+            string option = "";
+            
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("*******Territorios*******");
+                ShowMenu();
+                option = Console.ReadLine();
+
+                switch (option)
+                {
+                    case "1":
+                        Alta();
+                        Console.ReadKey();
+                        break;
+                    case "2":
+                        Baja();
+                        Console.ReadKey();
+                        break;
+                    case "3":
+                        Modificacion();
+                        Console.ReadKey();
+                        break;
+                    case "4":
+                        Listar();
+                        Console.ReadKey();
+                        break;
+                    case "5":
+                        break;
+
+                    default:
+                        Console.WriteLine("Opcion No Valida");
+                        break;
+                }
+            } while (option != "5");
+
+            Console.ReadKey();
+        }
+        public override void ShowMenu()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("1. Alta de Territorio");
+            sb.AppendLine("2. Baja de Territorio");
+            sb.AppendLine("3. Modificacion de Territorios");
+            sb.AppendLine("4. Ver Listado de Territorios");
+            sb.AppendLine("5. Salir");
+            sb.Append("Seleccione una Opcion");
+
+            Console.WriteLine(sb.ToString());
         }
     }
 }

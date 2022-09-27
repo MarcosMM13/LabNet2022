@@ -19,6 +19,10 @@ namespace LabTP4Console.UI
         {
             throw new NotImplementedException();
         }
+        public override void Modificacion()
+        {
+            throw new NotImplementedException();
+        }
 
         public override void Listar()
         {
@@ -40,10 +44,57 @@ namespace LabTP4Console.UI
                 Console.WriteLine($"la excepcion {ex.Message}") ;
             }
         }
-
-        public override void Modificacion()
+        public override void Menu()
         {
-            throw new NotImplementedException();
+            string option = "";            
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("*******Menu de Empleados*******");
+                ShowMenu();
+                option = Console.ReadLine();
+
+                switch (option)
+                {
+                    case "1":
+                        Alta();
+                        Console.ReadKey();
+                        break;
+                    case "2":
+                        Baja();
+                        Console.ReadKey();
+                        break;
+                    case "3":
+                        Modificacion();
+                        Console.ReadKey();
+                        break;
+                    case "4":
+                       Listar();
+                        Console.ReadKey();
+                        break;
+                    case "5":
+                        break;
+
+                    default:
+                        Console.WriteLine("Opcion No Valida");
+                        break;
+                }
+            } while (option != "5");
+
+            Console.ReadKey();
+        }
+        public override void ShowMenu()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("1. Alta de Empleados");
+            sb.AppendLine("2. Baja de Empleados");
+            sb.AppendLine("3. Modificacion de Empleados");
+            sb.AppendLine("4. Ver Listado de Empleados");
+            sb.AppendLine("5. Salir");
+            sb.Append("Seleccione una Opcion");
+
+            Console.WriteLine(sb.ToString());
         }
     }
 }

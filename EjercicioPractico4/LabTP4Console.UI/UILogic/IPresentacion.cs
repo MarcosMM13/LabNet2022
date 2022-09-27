@@ -12,6 +12,8 @@ namespace LabTP4Console.UI
         void Alta();
         void Baja();
         void Modificacion();
+        void Menu();
+        void ShowMenu();
 
     }
 }

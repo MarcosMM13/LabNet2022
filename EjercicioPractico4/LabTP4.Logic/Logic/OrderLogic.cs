@@ -1,15 +1,16 @@
-﻿using LabTP4.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LabTP4.Entities;
 
-namespace LabTP4.Logic
+
+namespace LabTP4.Logic.Logic
 {
-    public class SuppliersLogic : BaseLogic<Supplier>
+    public class OrderLogic : BaseLogic<Orders>
     {
-        public override void Add(Supplier newObj)
+        public override void Add(Orders newObj)
         {
             throw new NotImplementedException();
         }
@@ -19,17 +20,17 @@ namespace LabTP4.Logic
             throw new NotImplementedException();
         }
 
-        public override List<Supplier> GetAll()
+        public override List<Orders> GetAll()
         {
-            return _context.Suppliers.ToList();
+            return _context.Orders.ToList();
         }
 
-        public override Supplier GetById(int id)
+        public override Orders GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public override void Update(Supplier obj)
+        public override void Update(Orders obj)
         {
             throw new NotImplementedException();
         }

@@ -12,5 +12,7 @@ namespace LabTP4Console.UI
         public abstract void Alta();
         public abstract void Baja();
         public abstract void Modificacion();
+        public abstract void ShowMenu();
+        public abstract void Menu();
     }
 }

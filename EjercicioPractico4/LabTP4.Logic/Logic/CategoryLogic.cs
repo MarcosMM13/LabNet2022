@@ -21,7 +21,7 @@ namespace LabTP4.Logic
 
         public override List<Category> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Categories.ToList();
         }
 
         public override Category GetById(int id)
