@@ -47,7 +47,6 @@ namespace LabTP4.Logic
         public override void Update(Territory territory)
         {
             var territorioUpdate = _context.Territories.Find(territory.TerritoryID);
-
             territory.TerritoryDescription = territory.TerritoryDescription;
             territory.RegionID = territory.RegionID;
 

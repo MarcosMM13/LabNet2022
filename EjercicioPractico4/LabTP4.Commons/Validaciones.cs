@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace LabTP4.Commons
 {
-    public class Validaciones
+    public static class Validaciones
     {
+        //public static  ValidarNumNegativo(string Mensaje, int num)
+        //{ 
+            
+        //    while(num < 0)
+        //    {
+        //        return Mensaje;
+        //    }
+
+        //}
     }
 }
