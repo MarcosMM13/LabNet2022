@@ -32,20 +32,13 @@ namespace LabTP4.Logic
         }
 
         public override void Update(Region region)
-        {//revisar porque no captura la excepcion!!
+        {
             try
             {
                 var regionUpdate = _context.Regions.Find(region.RegionID);
                 regionUpdate.RegionDescription = region.RegionDescription;
 
-                _context.SaveChanges();
-
-                //if (regionUpdate != null)
-                //{
-                //    regionUpdate.RegionDescription = region.RegionDescription;
-
-                //    _context.SaveChanges();
-                //}
+                _context.SaveChanges();               
             }
             catch (Exception ex)
             {
