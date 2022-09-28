@@ -11,12 +11,18 @@ namespace LabTP4.Logic
     {
         public override void Add(Category newObj)
         {
-            throw new NotImplementedException();
+            _context.Categories.Add(newObj);
+
+            _context.SaveChanges();
         }
 
         public override void Delete(int id)
-        {
-            throw new NotImplementedException();
+        {            
+            var categoriaEliminar = _context.Categories.Find(id);
+            CambiarCategoriaProducto(categoriaEliminar.CategoryID);
+            _context.Categories.Remove(categoriaEliminar);
+
+            _context.SaveChanges();
         }
 
         public override List<Category> GetAll()
@@ -31,7 +37,22 @@ namespace LabTP4.Logic
 
         public override void Update(Category obj)
         {
-            throw new NotImplementedException();
+            var categoriaUpdate = _context.Categories.Find(obj.CategoryID);
+            categoriaUpdate.CategoryName = categoriaUpdate.CategoryName;
+            categoriaUpdate.Description = categoriaUpdate.Description;
+            categoriaUpdate.Picture = categoriaUpdate.Picture;
+
+            _context.SaveChanges();
+        }
+
+        public void CambiarCategoriaProducto(int categoriaID)
+        {
+            ProducLogic producLogic = new ProducLogic();
+            foreach (var item in producLogic.GetAll())
+            {
+                if (categoriaID == item.CategoryID)
+                    producLogic.Update(item);
+            }
         }
     }
 }

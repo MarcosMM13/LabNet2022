@@ -16,7 +16,7 @@ namespace LabTP4Console.UI
             ILogic<Region> rl = new RegionLogic();
             int? idRegion = r.RegionID;
             string descRegion = r.RegionDescription;
-            Listar();
+         
 
             try
             {
@@ -31,7 +31,8 @@ namespace LabTP4Console.UI
                     RegionDescription = descRegion
                 });
                 Console.WriteLine("Se guardo registro con exito!");
-
+                Console.WriteLine("Asi queda actualizada la lista de regiones:");
+                Listar();
             }
             catch (Exception ex)
             {
@@ -41,23 +42,28 @@ namespace LabTP4Console.UI
 
         public override void Baja()
         {
-            Console.WriteLine("Aca se borra una Region");
+            Console.WriteLine("Listado de Registros Actualizado");
             Region r = new Region();
             ILogic<Region> rl = new RegionLogic();
             int? idRegion = r.RegionID;
             string descRegion = r.RegionDescription;
-            Listar();
+           
 
             try
             {                
                 Console.WriteLine("Ingrese el id de la region que quiere borrar");
                 idRegion = int.Parse(Console.ReadLine());
                 rl.Delete((int)idRegion);
-                Console.WriteLine("se borro con exito");
+                Console.WriteLine("Se borro con exito");
+                Console.WriteLine("Asi queda actualizada la lista de regiones:");
+                Listar();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{ex.Message}");
+                Console.WriteLine($"No se puede eliminar el registro seleccionado por" +
+                   $"contener relacion con los Empleados cargados.");
+                Console.WriteLine("Ver listados de registros y seleccione otra Id para eliminar.");
+                Console.WriteLine($"Descripcion del error: {ex.Message}");
             }
         }
 
@@ -90,10 +96,10 @@ namespace LabTP4Console.UI
             ILogic<Region> rl = new RegionLogic();
             int? idRegion = r.RegionID;
             string descRegion = r.RegionDescription;
-            Listar();           
+                   
 
             try
-            {      
+            {               
                 Console.WriteLine("Modifique el Id de la Region:");
                 idRegion = int.Parse(Console.ReadLine());
                 Console.WriteLine("Modifique la descripcion:");

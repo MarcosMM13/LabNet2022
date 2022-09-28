@@ -14,7 +14,7 @@ namespace LabTP4Console.UI
         {
             Territory t = new Territory();
             ILogic<Territory> tl = new TerritoriesLogic();
-            Listar();
+           
             string idTerritorio = t.TerritoryID;
             string descTerritorio = t.TerritoryDescription;
             int? idRegion = t.RegionID;
@@ -52,7 +52,7 @@ namespace LabTP4Console.UI
         {
             Territory t = new Territory();
             ILogic<Territory> tl = new TerritoriesLogic();
-            Listar();            
+                     
             string idTerritorio = t.TerritoryID;
             string descTerritorio = t.TerritoryDescription;
             int? idRegion = t.RegionID;
@@ -71,7 +71,10 @@ namespace LabTP4Console.UI
             catch (Exception ex)
             {
 
-                Console.WriteLine($"{ex.Message}");
+                Console.WriteLine($"No se puede eliminar el registro seleccionado por" +
+                   $"contener relacion con los Empleados cargados.");
+                Console.WriteLine("Ver listados de registros y seleccione otra Id para eliminar.");
+                Console.WriteLine($"Descripcion del error: {ex.Message}");
             }
 
             Console.WriteLine();
@@ -103,7 +106,7 @@ namespace LabTP4Console.UI
         {
             Territory t = new Territory();
             ILogic<Territory> tl = new TerritoriesLogic();
-            Listar();
+           
             string idTerritorio = t.TerritoryID;
             string descTerritorio = t.TerritoryDescription;
             int? idRegion = t.RegionID;

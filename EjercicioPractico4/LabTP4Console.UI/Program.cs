@@ -92,28 +92,5 @@ namespace LabTP4Console.UI
             Console.WriteLine("Presiona para continuar.");
             Console.ReadKey();
         }
-       
-     
-       
- 
-    
-        private static void ShowMenuOrdenes()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("1. Alta de Territorio");
-            sb.AppendLine("2. Baja de Territorio");
-            sb.AppendLine("3. Modificacion de Territorios");
-            sb.AppendLine("4. Ver Listado de Territorios");
-            sb.AppendLine("5. Salir");
-            sb.Append("Seleccione una Opcion");
-
-            Console.WriteLine(sb.ToString());
-        }
-       
-        
-       
-
-
-      
     }
 }

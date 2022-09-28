@@ -12,12 +12,18 @@ namespace LabTP4.Logic.Logic
     {
         public override void Add(Orders newObj)
         {
-            throw new NotImplementedException();
+            _context.Orders.Add(newObj);
+
+            _context.SaveChanges();
         }
 
         public override void Delete(int id)
         {
-            throw new NotImplementedException();
+            var orderEliminar = _context.Orders.Find(id);
+
+            _context.Orders.Remove(orderEliminar);
+
+            _context.SaveChanges();
         }
 
         public override List<Orders> GetAll()
@@ -32,7 +38,33 @@ namespace LabTP4.Logic.Logic
 
         public override void Update(Orders obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var orderUpdate = _context.Orders.Find(obj.OrderID);
+                orderUpdate.Order_Details = orderUpdate.Order_Details;
+                orderUpdate.OrderDate = orderUpdate.OrderDate;
+                orderUpdate.CustomerID = orderUpdate.CustomerID;
+                orderUpdate.EmployeeID = orderUpdate.EmployeeID;
+                orderUpdate.OrderDate = orderUpdate.OrderDate;
+                orderUpdate.RequiredDate = orderUpdate.RequiredDate;
+                orderUpdate.ShippedDate = orderUpdate.ShippedDate;
+                orderUpdate.ShipVia = orderUpdate.ShipVia;
+                orderUpdate.Freight = orderUpdate.Freight;
+                orderUpdate.ShipName = orderUpdate.ShipName;
+                orderUpdate.ShipAddress = orderUpdate.ShipAddress;
+                orderUpdate.ShipCity = orderUpdate.ShipCity;
+                orderUpdate.ShipCountry = orderUpdate.ShipCountry;
+                orderUpdate.ShipRegion = orderUpdate.ShipRegion;
+                orderUpdate.ShipPostalCode = orderUpdate.ShipPostalCode;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+            _context.SaveChanges();
         }
     }
 }

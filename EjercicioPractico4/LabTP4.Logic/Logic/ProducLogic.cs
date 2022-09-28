@@ -32,7 +32,9 @@ namespace LabTP4.Logic
 
         public override void Update(Product obj)
         {
-            throw new NotImplementedException();
+            var productoUpdate = _context.Products.Find(obj.ProductID);
+            productoUpdate.CategoryID = null;
+            _context.SaveChanges();
         }
     }
 }

@@ -58,40 +58,25 @@ namespace LabTP4Console.UI
                 switch (option)
                 {
                     case "1":
-                        Alta();
-                        Console.ReadKey();
-                        break;
-                    case "2":
-                        Baja();
-                        Console.ReadKey();
-                        break;
-                    case "3":
-                        Modificacion();
-                        Console.ReadKey();
-                        break;
-                    case "4":
                         Listar();
                         Console.ReadKey();
                         break;
-                    case "5":
+                    case "2":
                         break;
 
                     default:
                         Console.WriteLine("Opcion No Valida");
                         break;
                 }
-            } while (option != "5");
+            } while (option != "2");
 
             Console.ReadKey();
         }
         public override void ShowMenu()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("1. Alta de Productos");
-            sb.AppendLine("2. Baja de Productos");
-            sb.AppendLine("3. Modificacion de Productos");
-            sb.AppendLine("4. Ver Listado de Productos");
-            sb.AppendLine("5. Salir");
+            sb.AppendLine("1. Ver Listado de Productos");
+            sb.AppendLine("2. Salir");
             sb.Append("Seleccione una Opcion");
 
             Console.WriteLine(sb.ToString());

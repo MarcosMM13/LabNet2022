@@ -12,12 +12,62 @@ namespace LabTP4Console.UI
     {
         public override void Alta()
         {
-            throw new NotImplementedException();
-        }
+            Category logic = new Category();
+            ILogic<Category> iLogic = new CategoryLogic();
+            int? idCategoria = logic.CategoryID;
+            string catNombre = logic.CategoryName;
+            string catDescripcion = logic.Description;
 
+            try
+            {
+                Console.WriteLine("Ingrese el Id de la nueva categoria:");
+                idCategoria = int.Parse(Console.ReadLine());
+                Console.WriteLine("Ingrese el nombre de la categoria:");
+                catNombre = Console.ReadLine();
+                Console.WriteLine("Ingrese la descripcion de la categoria:");
+                catDescripcion = Console.ReadLine();
+
+                iLogic.Add(new Category
+                {
+                    CategoryID = (int)idCategoria,
+                    CategoryName = catNombre,
+                    Description = catDescripcion
+                });
+                Console.WriteLine("Se guardo registro con exito!");
+                Console.WriteLine("Asi queda actualizada el listado de Categorias:");
+                Listar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{ex.Message}");
+            }
+        }
         public override void Baja()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Listado de Registros Actualizado");
+            Category logic = new Category();
+            ILogic<Category> iLogic = new CategoryLogic();
+            int? idCategoria = logic.CategoryID;
+            string catNombre = logic.CategoryName;
+            string catDescripcion = logic.Description;
+     
+
+            try
+            {
+                Console.WriteLine("Ingrese el id de la orden que desea borrar");
+                idCategoria = int.Parse(Console.ReadLine());
+                iLogic.Delete((int)idCategoria);
+                Console.WriteLine("Se borro el registro con exito");
+                Console.WriteLine("Asi queda actualizada la listado de categorias:");
+                Listar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"No se puede eliminar el registro seleccionado por" +
+                    $"contener relacion con los Productos cargados.");
+                Console.WriteLine("Ver listados de registros y seleccione otra Id para eliminar.");
+                Console.WriteLine($"Descripcion del error: {ex.Message}");
+            }
         }
 
         public override void Listar()
@@ -44,7 +94,37 @@ namespace LabTP4Console.UI
 
         public override void Modificacion()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Listado de Registros Actualizado");
+            Category logic = new Category();
+            ILogic<Category> iLogic = new CategoryLogic();
+            int? idCategoria = logic.CategoryID;
+            string catNombre = logic.CategoryName;
+            string catDescripcion = logic.Description;
+           
+
+            try
+            {
+                Console.WriteLine("Modifique el Id de la nueva categoria:");
+                idCategoria = int.Parse(Console.ReadLine());
+                Console.WriteLine("Modifique el nombre de la categoria:");
+                catNombre = Console.ReadLine();
+                Console.WriteLine("Modifique la descripcion de la categoria:");
+                catDescripcion = Console.ReadLine();
+
+                iLogic.Update(new Category
+                {
+                    CategoryID = (int)idCategoria,
+                    CategoryName = catNombre,
+                    Description = catDescripcion
+                });
+                Console.WriteLine("Se guardo registro con exito!");
+                Console.WriteLine("Asi queda actualizada la listado de categorias:");
+                Listar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{ex.Message}");
+            }
         }
         public override void Menu()
         {
@@ -99,4 +179,6 @@ namespace LabTP4Console.UI
             Console.WriteLine(sb.ToString());
         }
     }
+
 }
+

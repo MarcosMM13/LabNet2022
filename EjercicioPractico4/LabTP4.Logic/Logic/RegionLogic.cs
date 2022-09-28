@@ -47,9 +47,9 @@ namespace LabTP4.Logic
                 //    _context.SaveChanges();
                 //}
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
