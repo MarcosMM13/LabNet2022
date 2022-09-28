@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LabTP4.Entities;
 using LabTP4.Logic;
+using LabTP4.Commons;
 
 namespace LabTP4Console.UI
 {
@@ -27,6 +28,9 @@ namespace LabTP4Console.UI
                 Console.WriteLine("Ingrese la descripcion de la categoria:");
                 catDescripcion = Console.ReadLine();
 
+                Validaciones.AddCategoriaVal(ref idCategoria,ref catNombre, ref catDescripcion);
+                
+
                 iLogic.Add(new Category
                 {
                     CategoryID = (int)idCategoria,
@@ -41,6 +45,8 @@ namespace LabTP4Console.UI
             {
                 Console.WriteLine($"{ex.Message}");
             }
+
+           
         }
         public override void Baja()
         {
@@ -56,6 +62,7 @@ namespace LabTP4Console.UI
             {
                 Console.WriteLine("Ingrese el id de la orden que desea borrar");
                 idCategoria = int.Parse(Console.ReadLine());
+                Validaciones.DeleteCategoriaVal(ref idCategoria);
                 iLogic.Delete((int)idCategoria);
                 Console.WriteLine("Se borro el registro con exito");
                 Console.WriteLine("Asi queda actualizada la listado de categorias:");
@@ -110,6 +117,7 @@ namespace LabTP4Console.UI
                 catNombre = Console.ReadLine();
                 Console.WriteLine("Modifique la descripcion de la categoria:");
                 catDescripcion = Console.ReadLine();
+                Validaciones.UpdateCategoriaVal(ref idCategoria, ref catNombre, ref catDescripcion);
 
                 iLogic.Update(new Category
                 {

@@ -17,10 +17,18 @@ namespace LabTP4.Logic
         }
 
         public override void Delete(int id)
-        {            
+        {
+            try
+            {
             var categoriaEliminar = _context.Categories.Find(id);
             CambiarCategoriaProducto(categoriaEliminar.CategoryID);
             _context.Categories.Remove(categoriaEliminar);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
 
             _context.SaveChanges();
         }
@@ -37,10 +45,19 @@ namespace LabTP4.Logic
 
         public override void Update(Category obj)
         {
+            try
+            {
             var categoriaUpdate = _context.Categories.Find(obj.CategoryID);
             categoriaUpdate.CategoryName = categoriaUpdate.CategoryName;
             categoriaUpdate.Description = categoriaUpdate.Description;
             categoriaUpdate.Picture = categoriaUpdate.Picture;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
 
             _context.SaveChanges();
         }

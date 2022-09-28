@@ -67,6 +67,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LabTP4.Commons\LabTP4.Commons.csproj">
+      <Project>{e585324f-87b9-4b34-a365-99799e21d116}</Project>
+      <Name>LabTP4.Commons</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LabTP4.Entities\LabTP4.Entities.csproj">
       <Project>{22facaf3-5996-466e-9c6e-bfb8c3159f9e}</Project>
       <Name>LabTP4.Entities</Name>
