@@ -1,5 +1,4 @@
 ﻿using Ejercicio5.Entities;
-using Ejercicio5.Entities.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Ejercicio5.Logic
 {
-    public class CustomerLogic : BaseLogic<Customer>
+    public class CategoryLogic : BaseLogic<Category>
     {
-        public override void Add(Customer newObj)
+        public override void Add(Category newObj)
         {
             throw new NotImplementedException();
         }
@@ -20,26 +19,24 @@ namespace Ejercicio5.Logic
             throw new NotImplementedException();
         }
 
-        public override List<Customer> GetAll()
-        {
-            return _context.Customers.ToList();
-        }
-
-        public override Customer GetById(int id)
+        public override List<Category> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public override void Update(Customer obj)
+        public override Category GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public override IEnumerable<Customer> Listar()
+        public override IEnumerable<Category> Listar()
         {
-            return _context.Customers;
+            return _context.Categories;
         }
 
-       
+        public override void Update(Category obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
