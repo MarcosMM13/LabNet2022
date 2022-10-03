@@ -22,21 +22,20 @@ namespace Ejercicio5.Logic.Linq
 
             return query;
         }
-
-        public IEnumerable<Product> ProductoConStock()
+       
+        public IEnumerable<Product> ProductoConStockMasDe3()
         {
-        ProductLogic logic = new ProductLogic();
-        var products = logic.Listar();
+            ProductLogic logic = new ProductLogic();
+            var products = logic.Listar();
 
-        var query = products.Where(p => p.UnitsInStock != 0 && p.UnitPrice > 3);
+            var query = products.Where(p => p.UnitsInStock != 0 && p.UnitPrice > 3);
 
-        var query1 = from product in products
-                     where product.UnitsInStock != 0
-                     && product.UnitPrice > 3
-                     select product;
+            var query1 = from product in products
+                         where product.UnitsInStock != 0
+                         && product.UnitPrice > 3
+                         select product;
 
             return query;
         }
-
     }
 }
