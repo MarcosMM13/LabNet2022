@@ -1,5 +1,7 @@
-﻿using Ejercicio5.Entities.DTO;
+﻿using Ejercicio5.Entities;
+using Ejercicio5.Entities.DTO;
 using Ejercicio5.Logic;
+using Ejercicio5.Logic.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,87 +14,45 @@ namespace Ejercicio5.UI
     {
         public void Ejercicio1()
         {
-            CustomerLogic logic = new CustomerLogic();
-            var customers = logic.Listar();
+            CustomerLinq customerLinq = new CustomerLinq();
+            var query = customerLinq.ObjetoCustomer();
 
-            foreach (var item in customers)
+            foreach (var item in query)
             {
                 Console.WriteLine();
                 Console.WriteLine($"{item.CustomerID} -- {item.CompanyName} -- {item.ContactName} -- {item.ContactTitle} -- {item.Address} --" +
                     $" {item.City} -- {item.Region} -- {item.PostalCode} -- {item.Phone} -- {item.Fax}");
                 Console.WriteLine("********************************************************************************************************");
             }
-
-
         }
         public void Ejercicio2()
         {
-            ProductLogic logic = new ProductLogic();
-            var products = logic.Listar();
-
-            var query = products.Where(p => p.UnitsInStock == 0);
-
-            var query1 = from product in products
-                         where product.UnitsInStock == 0
-                         select product;
-
-            Console.WriteLine("Esto es Method Syntax");
+            ProductLinq productLinq = new ProductLinq();
+            var query = productLinq.ProductoSinStock();
+                   
             foreach (var item in query)
             {
                 Console.WriteLine();
                 Console.WriteLine($"{item.ProductName}");
                 Console.WriteLine("********************************************************************************************************");
             }
-
-            Console.WriteLine("Esto es Query Syntax");
-            foreach (var item in query1)
-            {
-                Console.WriteLine();
-                Console.WriteLine($"{item.ProductName}");
-                Console.WriteLine("********************************************************************************************************");
-            }
-
-
         }
         public void Ejercicio3()
         {
-            ProductLogic logic = new ProductLogic();
-            var products = logic.Listar();
-
-            var query = products.Where(p => p.UnitsInStock != 0 && p.UnitPrice > 3);
-
-            var query1 = from product in products
-                         where product.UnitsInStock != 0
-                         && product.UnitPrice > 3
-                         select product;
-
-            Console.WriteLine("Esto es Method Syntax");
+            ProductLinq productLinq = new ProductLinq();
+            var query = productLinq.ProductoConStockMasDe3();
+           
             foreach (var item in query)
             {
                 Console.WriteLine();
                 Console.WriteLine($"{item.ProductName}");
                 Console.WriteLine("********************************************************************************************************");
-            }
-
-            Console.WriteLine("Esto es Query Syntax");
-            foreach (var item in query1)
-            {
-                Console.WriteLine();
-                Console.WriteLine($"{item.ProductName}");
-                Console.WriteLine("********************************************************************************************************");
-            }
+            }           
         }
         public void Ejercicio4()
         {
-            CustomerLogic logic = new CustomerLogic();
-            var customers = logic.Listar();
-
-            var query = customers.Where(c => c.Region == "WA");
-
-            var query1 = from customer in customers
-                         where customer.Region == "WA"
-                         select customer;
-
+            CustomerLinq customerLinq = new CustomerLinq();
+            var query = customerLinq.RegionWA();
 
             foreach (var item in query)
             {
@@ -143,6 +103,7 @@ namespace Ejercicio5.UI
                             ContactName = customer.ContactName,
                             OrderID = order.OrderID
                         };
+
             foreach (var item in query)
             {
                 Console.WriteLine($"{item.ContactName} - {item.CustomerID} - {item.OrderID} - {item.OrderDate}");
@@ -251,6 +212,8 @@ namespace Ejercicio5.UI
                 Console.WriteLine($"{item.ContactName} - {item.CustomerID} - {item.CantOrdenes}");
             }
         }
+
+       
     }
 }
 

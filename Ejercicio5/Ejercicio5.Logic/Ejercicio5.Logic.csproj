@@ -49,9 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseLogic.cs" />
+    <Compile Include="Linq\CategoryLinq.cs" />
     <Compile Include="CategoryLogic.cs" />
     <Compile Include="CustomerLogic.cs" />
     <Compile Include="ILogic.cs" />
+    <Compile Include="Linq\CustomerLinq.cs" />
+    <Compile Include="Linq\OrderLinq.cs" />
+    <Compile Include="Linq\ProductLinq.cs" />
     <Compile Include="OrderLogic.cs" />
     <Compile Include="ProductLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
