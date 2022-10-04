@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap');
+
+.body {
+    background-color: rgb(232, 237, 241);
+    color: black;
+}
+.form{
+    background-color: rgb(155, 195, 226);
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(24, 29, 39);    
+}
+.text-info{
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(0, 0, 0) !important;
+}
+
+fieldset {
+    margin: 0px;
+    border: 1px solid rgb(54, 53, 53);
+    padding: 8px;
+    border-radius: 4px;
+}
+legend {
+    padding: 2px;
+}
+
+.ancho-input{
+    width: 80%;
+}
