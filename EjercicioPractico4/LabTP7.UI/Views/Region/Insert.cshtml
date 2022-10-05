@@ -1,0 +1,11 @@
+﻿@model LabTP7.UI.Models.RegionView
+@{
+    ViewBag.Title = "Pagina de Region";
+}
+<h1>Aca se realiza un Insert</h1>
+
+@using (Html.BeginForm("Insert", "Region", FormMethod.Post))
+{
+    <label>Descripcion: </label>@Html.TextBoxFor(r => r.Description)
+    <input type="submit" class="btn btn-success" value="Guardar" />
+}
