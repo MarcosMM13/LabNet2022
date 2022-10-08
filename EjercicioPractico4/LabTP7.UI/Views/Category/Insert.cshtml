@@ -1,0 +1,20 @@
+﻿@model LabTP7.UI.Models.CategoryView
+@{
+    ViewBag.Title = "Pagina de Categoria";
+}
+@using (Html.BeginForm("Insert", "Category", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationMessage("error", new { @class="text-danger"})
+    <div class="container-fluid col">
+        <label for="exampleFormControlInput1" class="form-label">Nombre:</label>
+        @Html.TextBoxFor(c => c.Nombre, new { @class = "form-control", @placeholder = "Nombre de la Categoria" })
+        @Html.ValidationMessage("Nombre", new { @class = "text-danger"})
+
+    </div>
+    <div class="container-fluid">
+        <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+        @Html.TextAreaFor(c => c.Descripcion, new { @class = "form-control", @placeholder = "Descripcion de la Categoria", @rows = "6" })
+    </div>
+    <input type="submit" class="btn btn-success right" value="Guardar" />
+}

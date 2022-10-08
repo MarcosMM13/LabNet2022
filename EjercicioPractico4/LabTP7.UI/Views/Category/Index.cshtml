@@ -1,0 +1,31 @@
+﻿@model List<LabTP7.UI.Models.CategoryView>
+@{
+    ViewBag.Title = "Pagina de Categorias";
+}
+<div class="text-center">
+    <h1>Listado de Categorias</h1>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categorias in Model)
+        {
+            <tr>
+                <td>@categorias.CategoryID</td>
+                <td>@categorias.Nombre</td>
+                <td>@categorias.Descripcion</td>
+                <td>@Html.ActionLink("Borrar", "Delete", new { id = categorias.CategoryID }, new { onclick = "return confirm('Esta seguro de borrar')" })</td>
+                <td>@Html.ActionLink("Modificar", "Edit", new { id = categorias.CategoryID })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <button type="button" class="btn btn-primary" onclick="location.href = '@Url.Action("Insert", "Category")'">Crear</button>
+</div>

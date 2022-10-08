@@ -3,25 +3,27 @@
     ViewBag.Title = "Pagina de Region";
 }
 <h1>Hola soy el Index de Region</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var region in Model)
-        {
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>@region.Id</td>
-                <td>@region.Description</td>
-                <td>@Html.ActionLink("Borrar","Delete",new { id = region.Id},new {onclick="return confirm('Esta seguro de borrar')"})</td>
+                <th scope="col">Id</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Action</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var region in Model)
+            {
+                <tr>
+                    <td>@region.Id</td>
+                    <td>@region.Description</td>
+                    <td>@Html.ActionLink("Borrar", "Delete", new { id = region.Id }, new { onclick = "return confirm('Esta seguro de borrar')" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 <div>
     @Html.ActionLink("Insertar Nueva Region", "Insert", "Region")
 </div>

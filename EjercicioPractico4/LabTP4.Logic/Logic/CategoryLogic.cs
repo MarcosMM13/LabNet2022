@@ -11,18 +11,28 @@ namespace LabTP4.Logic
     {
         public override void Add(Category newObj)
         {
-            _context.Categories.Add(newObj);
+            try
+            {
 
-            _context.SaveChanges();
+                _context.Categories.Add(newObj);
+
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public override void Delete(int id)
         {
             try
             {
-            var categoriaEliminar = _context.Categories.Find(id);
-            CambiarCategoriaProducto(categoriaEliminar.CategoryID);
-            _context.Categories.Remove(categoriaEliminar);
+                var categoriaEliminar = _context.Categories.Find(id);
+                CambiarCategoriaProducto(categoriaEliminar.CategoryID);
+                _context.Categories.Remove(categoriaEliminar);
+                _context.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -30,28 +40,37 @@ namespace LabTP4.Logic
                 throw ex;
             }
 
-            _context.SaveChanges();
         }
 
         public override List<Category> GetAll()
         {
-            return _context.Categories.ToList();
+            try
+            {
+                return _context.Categories.ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public override Category GetById(int id)
         {
-            throw new NotImplementedException();
+            var categoriaId = _context.Categories.Find(id);
+            return categoriaId;
         }
 
         public override void Update(Category obj)
         {
             try
             {
-            var categoriaUpdate = _context.Categories.Find(obj.CategoryID);
-            categoriaUpdate.CategoryName = categoriaUpdate.CategoryName;
-            categoriaUpdate.Description = categoriaUpdate.Description;
-            categoriaUpdate.Picture = categoriaUpdate.Picture;
-
+                var categoriaUpdate = _context.Categories.Find(obj.CategoryID);
+                categoriaUpdate.CategoryName = obj.CategoryName;
+                categoriaUpdate.Description = obj.Description;
+                categoriaUpdate.Picture = obj.Picture;
+                _context.Entry(categoriaUpdate).Property(c => c.CategoryID).IsModified = false;
+                _context.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -59,7 +78,6 @@ namespace LabTP4.Logic
                 throw ex;
             }
 
-            _context.SaveChanges();
         }
 
         public void CambiarCategoriaProducto(int categoriaID)

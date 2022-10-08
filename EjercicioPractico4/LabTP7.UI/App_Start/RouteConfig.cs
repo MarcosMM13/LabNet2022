@@ -16,7 +16,7 @@ namespace LabTP7.UI
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Region", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Category", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
