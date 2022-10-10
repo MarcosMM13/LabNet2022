@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabTP4.Commons", "LabTP4.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabTP7.UI", "LabTP7.UI\LabTP7.UI.csproj", "{F39E0300-8E02-480F-B7AC-34485E671280}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabTP8.Services", "LabTP8.Services\LabTP8.Services.csproj", "{AD3AFDA6-B00B-421E-9A3B-69DF86DB8841}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabTP8.WebApi", "LabTP8.WebApi\LabTP8.WebApi.csproj", "{B41519B0-8DDA-457D-95F0-DEBEBAA63615}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{F39E0300-8E02-480F-B7AC-34485E671280}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F39E0300-8E02-480F-B7AC-34485E671280}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F39E0300-8E02-480F-B7AC-34485E671280}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD3AFDA6-B00B-421E-9A3B-69DF86DB8841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD3AFDA6-B00B-421E-9A3B-69DF86DB8841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD3AFDA6-B00B-421E-9A3B-69DF86DB8841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD3AFDA6-B00B-421E-9A3B-69DF86DB8841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B41519B0-8DDA-457D-95F0-DEBEBAA63615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B41519B0-8DDA-457D-95F0-DEBEBAA63615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B41519B0-8DDA-457D-95F0-DEBEBAA63615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B41519B0-8DDA-457D-95F0-DEBEBAA63615}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
