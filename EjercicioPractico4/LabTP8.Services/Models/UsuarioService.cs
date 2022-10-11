@@ -16,6 +16,7 @@ namespace LabTP8.Services.Models
 
             try
             {
+
                 return await usuarioLogic.GetUsuarios();
             }
             catch (Exception ex)
