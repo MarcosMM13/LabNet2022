@@ -131,11 +131,13 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CategoryView.cs" />
     <Compile Include="Models\RegionView.cs" />
+    <Compile Include="Models\UsuarioView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +182,7 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Insert.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -206,6 +209,10 @@
     <ProjectReference Include="..\LabTP4.Logic\LabTP4.Logic.csproj">
       <Project>{6A22DEFA-DF11-4973-9C96-57D09228A98B}</Project>
       <Name>LabTP4.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LabTP8.Services\LabTP8.Services.csproj">
+      <Project>{AD3AFDA6-B00B-421E-9A3B-69DF86DB8841}</Project>
+      <Name>LabTP8.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

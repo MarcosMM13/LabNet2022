@@ -1,0 +1,28 @@
+﻿@model List<LabTP7.UI.Models.UsuarioView>
+@{
+    ViewBag.Title = "Pagina de Api publica";
+}
+<h1>Consumo de API Publica</h1>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Id Usuario</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Cuerpo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var usuario in Model)
+            {
+            <tr>
+                <td>@usuario.Id</td>
+                <td>@usuario.UserId</td>
+                <td>@usuario.Title</td>
+                <td>@usuario.Body</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
