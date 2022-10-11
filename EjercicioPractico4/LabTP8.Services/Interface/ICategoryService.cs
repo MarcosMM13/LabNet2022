@@ -11,7 +11,8 @@ namespace LabTP8.Services.Interface
     {
         List<Category> ListCategories();
         Category GetId(int id);
-
+        void UpdateCategory(Category category);
+        void DeleteCategory(int id);
         void AddCategory(Category category);
     }
 }

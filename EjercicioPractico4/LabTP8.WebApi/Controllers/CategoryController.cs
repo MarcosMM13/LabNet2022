@@ -9,6 +9,7 @@ using System.Net;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
+using HttpPutAttribute = System.Web.Http.HttpPutAttribute;
 
 namespace LabTP8.WebApi.Controllers
 {
@@ -87,6 +88,42 @@ namespace LabTP8.WebApi.Controllers
             catch (Exception ex)
             {
                 return Content(HttpStatusCode.NotFound, ex.Message);
+            }
+        }
+
+        // PUT api/Category
+        [HttpPut]
+        public IHttpActionResult Put([FromBody] CategoryRequest category)
+        {
+            try
+            {
+                Category cat = new Category
+                {
+                    CategoryID = category.Id,
+                    CategoryName = category.Nombre,
+                    Description = category.Descripcion
+                };
+                CategoryService.UpdateCategory(cat);
+                return Ok(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+
+                return Content(HttpStatusCode.NotFound, ex.Message);
+            }
+        }
+
+        // DELETE api/Category/{id}
+        public IHttpActionResult Delete(int id)
+        {
+            try
+            {
+                CategoryService.DeleteCategory(id);
+                return Ok(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                 return Content(HttpStatusCode.BadRequest, ex);
             }
         }
 

@@ -74,6 +74,32 @@ namespace LabTP8.Services.Models
             var validar = new CategoryValidation();
             validar.ValidateAndThrow(category);
         }
+
+        public void UpdateCategory(Category category)
+        {
+            try
+            {
+                ValidarCategory(category);
+                CategoryLogic.Update(category);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            };
+        }
+
+        public void DeleteCategory(int id)
+        {
+            try
+            {
+                CategoryLogic.Delete(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
 
