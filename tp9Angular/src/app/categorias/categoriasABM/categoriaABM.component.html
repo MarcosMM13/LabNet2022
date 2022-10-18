@@ -1,0 +1,65 @@
+<body class="estiloFondo">
+  <div class="text-align:center">
+    <form [formGroup]="form" (ngSubmit)="guardarCategoria()" class="example-form text-align center">
+      <div class="container">
+        <h1 class="titulo"><b>{{accion | uppercase}} DE CATEGORIAS</b></h1>
+        <br>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">
+            <i class="fa fa-thin fa-file" [class.green-icon]="this.form.get('nombre')?.valid"
+              [class.red-icon]="this.form.get('nombre')?.invalid && this.form.get('nombre')?.touched"></i>
+          </span>
+          <input formControlName="nombre" maxlength="15" type="text" class="form-control" placeholder="Categoria">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">
+            <i class="fa-solid fa-list"></i>
+          </span>
+          <input formControlName="descripcion" type="text" class="form-control" placeholder="Descripcion">
+        </div>
+      </div>
+      <div class="container">
+        <div class="margen">
+          <button [disabled]="this.form.invalid" class="submit" style="margin: 5px" class="btn btn-outline-success">
+            <i class="fa-solid fa-floppy-disk"></i>
+          </button>
+          <button type="button" style="margin: 5px" class="btn btn-outline-warning">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+    <br />
+    <br />
+    <br />
+    <div class="container">
+      <h3 class="titulo"><b>LISTA DE CATEGORIAS</b></h3>
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <td>Id</td>
+              <td>Nombre</td>
+              <td>Descripcion</td>
+              <td>Actualizar</td>
+              <td>Eliminar</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of listCategorias; let i = index">
+              <td>{{item.Id}}</td>
+              <td>{{item.Nombre}}</td>
+              <td>{{item.Descripcion}}</td>
+              <td>
+                <i (click)="modificarCategoria(item)" class="fa fa-pen"></i>
+              </td>
+              <td>
+                <i (click)="eliminarCategoria(item.Id)" class="fa fa-trash-can text-danger"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
